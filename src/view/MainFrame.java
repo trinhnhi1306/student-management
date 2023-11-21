@@ -37,12 +37,15 @@ public class MainFrame extends javax.swing.JFrame {
         list.add(new Student("Nguyễn Văn D", 10, "Công nghệ thông tin"));
     }
     
-    public void addStudent() {
-        
+    public void addStudent(Student student) {
+        list.add(student);
     }
     
     public void removeStudent() {
-        
+        DefaultTableModel model = (DefaultTableModel) jTable_Student.getModel();
+        int selectedRow = jTable_Student.getSelectedRow();
+        list.remove(selectedRow);
+        fillToTable();
     }
     
     public void updateStudent() {
@@ -86,7 +89,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField_HooVaTen = new javax.swing.JTextField();
+        jTextField_HoVaTen = new javax.swing.JTextField();
         jTextField_Diem = new javax.swing.JTextField();
         jComboBox_Nganh = new javax.swing.JComboBox<>();
         jTextField_HocLuc = new javax.swing.JTextField();
@@ -123,7 +126,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("QUẢN LÝ SINH VIÊN");
 
-        jTextField_HooVaTen.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField_HoVaTen.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jTextField_Diem.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -194,7 +197,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField_HooVaTen, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_HoVaTen, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField_Diem, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField_HocLuc, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -224,7 +227,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField_HooVaTen, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField_HoVaTen, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField_Diem, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -252,7 +255,11 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton_ThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ThemActionPerformed
         // TODO add your handling code here:
-        addStudent();
+        Student student = new Student();
+        student.setName(jTextField_HoVaTen.getText());
+        student.setMajor(jComboBox_Nganh.getSelectedItem().toString());
+        student.setMarks(Double.parseDouble(jTextField_Diem.getText()));
+        addStudent(student);
         fillToTable();
     }//GEN-LAST:event_jButton_ThemActionPerformed
 
@@ -270,7 +277,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton_NhapMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_NhapMoiActionPerformed
         // TODO add your handling code here:
-        jTextField_HooVaTen.setText("");
+        jTextField_HoVaTen.setText("");
         jTextField_Diem.setText("");
         jComboBox_Nganh.setSelectedItem(null);
         jTextField_HocLuc.setText("");
@@ -335,7 +342,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_Student;
     private javax.swing.JTextField jTextField_Diem;
+    private javax.swing.JTextField jTextField_HoVaTen;
     private javax.swing.JTextField jTextField_HocLuc;
-    private javax.swing.JTextField jTextField_HooVaTen;
     // End of variables declaration//GEN-END:variables
 }
