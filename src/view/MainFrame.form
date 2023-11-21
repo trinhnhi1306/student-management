@@ -41,7 +41,7 @@
                           <Component id="jPanel2" min="-2" pref="98" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField_HooVaTen" min="-2" pref="562" max="-2" attributes="0"/>
+                              <Component id="jTextField_HoVaTen" min="-2" pref="562" max="-2" attributes="0"/>
                               <Component id="jTextField_Diem" min="-2" pref="562" max="-2" attributes="0"/>
                               <Component id="jTextField_HocLuc" min="-2" pref="562" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
@@ -79,7 +79,7 @@
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jTextField_HooVaTen" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="jTextField_HoVaTen" min="-2" pref="42" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jTextField_Diem" min="-2" pref="42" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -156,7 +156,7 @@
             <Property name="text" type="java.lang.String" value="QU&#x1ea2;N L&#xdd; SINH VI&#xca;N"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField_HooVaTen">
+        <Component class="javax.swing.JTextField" name="jTextField_HoVaTen">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
