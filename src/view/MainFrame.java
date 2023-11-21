@@ -52,7 +52,7 @@ public class MainFrame extends javax.swing.JFrame {
         int index = jTable_Student.getSelectedRow();
         Student sv = list.get(index);
         
-        sv.name = jTextField_HooVaTen.getText();
+        sv.name = jTextField_HoVaTen.getText();
         sv.marks =Double.parseDouble(jTextField_Diem.getText());
         sv.major = jComboBox_Nganh.getSelectedItem().toString();
     }
@@ -70,7 +70,7 @@ public class MainFrame extends javax.swing.JFrame {
         int index = jTable_Student.getSelectedRow();
         Student sv = list.get(index);
         
-        jTextField_HooVaTen.setText(sv.name);
+        jTextField_HoVaTen.setText(sv.name);
         jTextField_Diem.setText(String.valueOf(sv.marks));
         jComboBox_Nganh.setSelectedItem(sv.major);
         jTextField_HocLuc.setText(sv.getGrade());
