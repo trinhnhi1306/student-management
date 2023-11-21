@@ -55,6 +55,9 @@ public class MainFrame extends javax.swing.JFrame {
         sv.name = jTextField_HoVaTen.getText();
         sv.marks =Double.parseDouble(jTextField_Diem.getText());
         sv.major = jComboBox_Nganh.getSelectedItem().toString();
+        
+        jTextField_HocLuc.setText(sv.getGrade());
+        jCheckBox_Thuong.setSelected(sv.isBonus());
     }
     
     public void fillToTable() {
