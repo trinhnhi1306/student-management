@@ -46,7 +46,12 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     public void updateStudent() {
+        int index = jTable_Student.getSelectedRow();
+        Student sv = list.get(index);
         
+        sv.name = jTextField_HooVaTen.getText();
+        sv.marks =Double.parseDouble(jTextField_Diem.getText());
+        sv.major = jComboBox_Nganh.getSelectedItem().toString();
     }
     
     public void fillToTable() {
@@ -59,7 +64,14 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     public void showDetail() {
+        int index = jTable_Student.getSelectedRow();
+        Student sv = list.get(index);
         
+        jTextField_HooVaTen.setText(sv.name);
+        jTextField_Diem.setText(String.valueOf(sv.marks));
+        jComboBox_Nganh.setSelectedItem(sv.major);
+        jTextField_HocLuc.setText(sv.getGrade());
+        jCheckBox_Thuong.setSelected(sv.isBonus());
     }
     
     public void orderByName() {
