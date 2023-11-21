@@ -14,6 +14,15 @@ public class Student {
     public double marks;
     public String major;
 
+    public Student() {
+    }
+
+    public Student(String name, double marks, String major) {
+        this.name = name;
+        this.marks = marks;
+        this.major = major;
+    }
+
     public String getGrade() {
         if (this.marks < 3) {
             return "Kém";

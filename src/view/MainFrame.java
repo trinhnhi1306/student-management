@@ -6,6 +6,7 @@ package view;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.table.DefaultTableModel;
 import model.Student;
 
 /**
@@ -14,13 +15,26 @@ import model.Student;
  */
 public class MainFrame extends javax.swing.JFrame {
     
-    private List<Student> list = new ArrayList<>();
+    private List<Student> list;
+    private DefaultTableModel model;
 
     /**
      * Creates new form MainForm
      */
     public MainFrame() {
         initComponents();
+        setLocationRelativeTo(null);
+        list = new ArrayList<>();
+        initData();
+        model = (DefaultTableModel) jTable_Student.getModel();
+        fillToTable();
+    }
+    
+    public void initData() {
+        list.add(new Student("Nguyễn Văn A", 7, "Công nghệ thông tin"));
+        list.add(new Student("Nguyễn Văn B", 8, "Công nghệ thông tin"));
+        list.add(new Student("Nguyễn Văn C", 9, "Công nghệ thông tin"));
+        list.add(new Student("Nguyễn Văn D", 10, "Công nghệ thông tin"));
     }
     
     public void addStudent() {
@@ -36,7 +50,12 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     public void fillToTable() {
+        model.setRowCount(0);
         
+        for (Student sv : list) {
+            Object[] row = new Object[]{sv.name, sv.marks, sv.major, sv.getGrade(), sv.isBonus()};
+            model.addRow(row);
+        }
     }
     
     public void showDetail() {
@@ -80,6 +99,7 @@ public class MainFrame extends javax.swing.JFrame {
         jTable_Student = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Quản lý sinh viên");
         getContentPane().setLayout(new java.awt.CardLayout());
 
         jPanel2.setLayout(new java.awt.GridLayout(4, 1, 0, 3));
@@ -108,6 +128,7 @@ public class MainFrame extends javax.swing.JFrame {
         jTextField_Diem.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jComboBox_Nganh.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jComboBox_Nganh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ứng dụng phần mềm", "Công nghệ thông tin", "Công nghệ phần mềm", "Quản trị kinh doanh", "Kế toán", "An toàn thông tin" }));
 
         jTextField_HocLuc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -175,7 +196,6 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField_HooVaTen, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField_Diem, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox_Nganh, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField_HocLuc, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton_Them)
@@ -185,7 +205,8 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addComponent(jButton_CapNhat)
                                 .addGap(28, 28, 28)
                                 .addComponent(jButton_NhapMoi))
-                            .addComponent(jCheckBox_Thuong)))
+                            .addComponent(jCheckBox_Thuong)
+                            .addComponent(jComboBox_Nganh, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(310, 310, 310)
                         .addComponent(jLabel1)))
@@ -249,6 +270,11 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton_NhapMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_NhapMoiActionPerformed
         // TODO add your handling code here:
+        jTextField_HooVaTen.setText("");
+        jTextField_Diem.setText("");
+        jComboBox_Nganh.setSelectedItem(null);
+        jTextField_HocLuc.setText("");
+        jCheckBox_Thuong.setSelected(false);
     }//GEN-LAST:event_jButton_NhapMoiActionPerformed
 
     private void jTable_StudentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_StudentMouseClicked
